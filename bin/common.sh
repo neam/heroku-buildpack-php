@@ -40,8 +40,13 @@ init_log_plex_fifo() {
   for log_file in $*; do
     echo "rm -f ${log_file}"
     echo "mkfifo ${log_file}"
+  done
+}
+
+init_papertrail_log_plex_fifo() {
+  for log_file in $*; do
     # todo: activate once non-fife papertrail logging is confirmed to work
-    #echo "mkfifo ${log_file}.papertrail"
+    echo "#mkfifo ${log_file}.papertrail"
   done
 }
 
@@ -67,8 +72,10 @@ cat_log_plex() {
 }
 
 cat_papertrail_log_plex() {
+  echo "echo \"files:\" > logs.yml"
   for log_file in $*; do
     echo "cat ${log_file} | tee ${log_file}.papertrail &"
+    echo "echo \" - ${log_file}.papertrail\" >> logs.yml"
   done
 }
 
