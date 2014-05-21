@@ -55,7 +55,7 @@ init_log_plex() {
 }
 
 tail_log_plex() {
-  echo "tail -n 0 -qF $*"
+  echo "tail -n 0 -F $* &"
 }
 
 cat_log_plex() {
