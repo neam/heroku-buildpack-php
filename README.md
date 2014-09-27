@@ -127,6 +127,18 @@ Options:
   this document. Defaults to `index.php`. With Yii apps, this can be set to `index-test.php`
   for deployments used for acceptance testing.
 
+### Yii DNA projects
+
+Is detected when the `framework` setting is set to `yii-dna` in the `composer.json`.
+
+This framework preset doesn't need any configuration to work.
+
+Options:
+
+* `index-document`: All requests which don't match an existing file will be forwarded to
+  this document. Defaults to `index.php`. With Yii apps, this can be set to `index-test.php`
+  for deployments used for acceptance testing.
+
 ## Extensions
 
 When the buildpack encounters `ext-` requirements in your `composer.json`, it will look
